@@ -1,0 +1,10 @@
+AllCops:
+  Exclude:
+    - 'db/**/*'
+    - 'bin/**/*'
+    - 'log/**/*'
+    - 'Gemfile'
+Metrics/LineLength:
+  Enabled: false
+Style/Documentation:
+  Enabled: false

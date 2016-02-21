@@ -12,6 +12,8 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'slim-rails'
 gem 'simple_form'
 gem 'decent_exposure'
+gem 'omniauth'
+gem 'omniauth-google-oauth2'
 
 group :development, :test do
   gem 'pry'
