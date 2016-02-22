@@ -14,6 +14,8 @@ gem 'simple_form'
 gem 'decent_exposure'
 gem 'omniauth'
 gem 'omniauth-google-oauth2'
+gem 'bourbon'
+gem 'neat'
 
 group :development, :test do
   gem 'pry'
@@ -26,4 +28,5 @@ end
 group :development do
   gem 'web-console', '~> 2.0'
   gem 'spring'
+  gem 'refills'
 end
