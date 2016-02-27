@@ -1,5 +1,18 @@
 header
-  p Smart Home
+  .logo
+    p Smart Home Logo
+  .nav
+    .nav-link
+      = link_to "Home", "javascript:void(0)"
+    .nav-link
+      = link_to "Start Here", "javascript:void(0)"
+    .nav-link
+      = link_to "Tutorials", "javascript:void(0)"
+    .nav-link
+      = link_to "Contacts", "javascript:void(0)"
+    .nav-link
+      = link_to "Sign in", 'auth/google_oauth2', class: "signin"
+
 
 .content
   main.landing
@@ -11,6 +24,6 @@ header
 
     = link_to  'auth/google_oauth2', class: 'signin button' do
       .fa.fa-google.fa-fw
-      |Sign in with Google
+      |Sign up with Google
 
 footer

@@ -7,11 +7,6 @@ body
   margin: 0px
   color: $text-color
 
-  header
-    height: 10vh
-    background: $item-color
-    border-color: transparent
-
 .content
   @include outer-container
   font-family: $monospace
@@ -19,9 +14,11 @@ body
   .landing
     @include span-columns(8)
     @include shift(4)
+    @include border-top-radius(6px)
+    @include border-bottom-radius(6px)
     font-size: 15pt
     background: $item-color
-    margin-top: 30px
+    margin-top: 100px
     padding: 20px 10px 20px 10px
 
     p
@@ -34,6 +31,10 @@ body
     .signin
       margin-top: 2em
       background: #DF4A32
+      @include transition(all, 500ms, ease-in-out)
+
+      &:hover
+        background: darken(#DF4A32, 10%)
 
 .landing::after
   background: url("/assets/raspberry.jpg")
