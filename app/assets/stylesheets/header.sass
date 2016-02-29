@@ -7,20 +7,19 @@ header
   width: 100%
 
   .logo
-    @include span-columns(2)
-    padding-left: 100px
+    @include span-columns(7)
 
   .nav
-    @include span-columns(10)
-    padding-right: 0
+    @include span-columns(5)
 
     .nav-link
-      @include span-columns(2 of 10)
+      @include span-columns(1 of 5)
       padding-top: 20px
       text-align: right
 
       a
-        font-weight: bold
+        white-space: nowrap
+        font-size: 0.8em
         color: $navigation-color
         display: inline-block
         text-decoration: none
@@ -29,18 +28,11 @@ header
           text-decoration: underline
 
       .signin
-        color: red
+        @include padding(10px 20px)
+        margin-top: -10px
         margin-right: 35px
-        position: relative
+        border: 1px solid red
+        border-radius: 3px
+        color: red
         &:hover
           text-decoration: none
-        &:after
-          border: 1px solid red
-          border-radius: 2px
-          display: block
-          content: ""
-          width: 120px
-          height: 50px
-          right: -35px
-          top: -13px
-          position: absolute
