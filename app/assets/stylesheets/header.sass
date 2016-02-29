@@ -1,36 +1,34 @@
 header
   $navigation-color: inherit
   @include outer-container(100%)
-  height: 70px
+  white-space: nowrap
   background: linear-gradient(to bottom,rgba(0,0,0,0.9) 0,rgba(0,0,0,0) 95%,rgba(0,0,0,0) 99%)
   position: fixed
   width: 100%
 
   .logo
+    height: 70px
     @include span-columns(7)
+    @include omega
 
   .nav
+    height: 70px
     @include span-columns(5)
 
     .nav-link
       @include span-columns(1 of 5)
       padding-top: 20px
-      text-align: right
 
       a
-        white-space: nowrap
         font-size: 0.8em
         color: $navigation-color
-        display: inline-block
         text-decoration: none
-        margin: 0 auto
         &:hover
           text-decoration: underline
 
       .signin
-        @include padding(10px 20px)
+        @include padding(10px 15px)
         margin-top: -10px
-        margin-right: 35px
         border: 1px solid red
         border-radius: 3px
         color: red
