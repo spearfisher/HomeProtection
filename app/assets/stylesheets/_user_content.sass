@@ -3,17 +3,14 @@ body
 
   .controls_wrapper
     $base-border-radius: 3px !default
-    $base-background-color: white !default
     $dark-gray: #333 !default
     $light-gray: #DDD !default
-    $base-font-color: $dark-gray !default
-    $flex-box-border-color: $light-gray
-    $flex-box-border: 1px solid $flex-box-border-color
-    $flex-box-background: lighten($light-gray, 10%)
+    $alarm-red: #ce2d2d
+    $light-green: #24B245
+    $light-blue: #0094D9
+    $violet: #7459B2
     $flex-box-gutter: 0.4em
-    $flex-box-width: 18em
-    $flex-box-color: transparentize($base-font-color, 0.3)
-
+    $flex-box-color: white
     @include clearfix
     @include display(flex)
     @include justify-content(center)
@@ -27,17 +24,27 @@ body
       @include transition (all 0.2s ease-in-out)
       @include flex(2 2 15em)
       @include align-self(stretch)
-      background: $flex-box-background
-      border-radius: $base-border-radius
-      box-shadow: inset 0 0 1px $flex-box-border-color, 0 2px 4px darken($base-background-color, 10%)
-      display: block
+      color: $flex-box-color
       margin: $flex-box-gutter
+      border-radius: $base-border-radius
+      box-shadow: inset 0 0 1px $light-gray, 0 2px 4px darken($base-background-color, 10%)
       padding: 2em 2em 3em 2em
       text-decoration: none
 
+    .temp_section
+      background: $light-blue
+    .guard_section
+      background: $alarm-red
+    .graph_section
+      background: $light-green
+      @include flex(1 1 40em)
+
     .video_section
       @include flex(1 1 40em)
-    .temp_section
-    .guard_section
-    .graph_section
-      @include flex(1 1 40em)
+      margin: $flex-box-gutter
+      border-radius: $base-border-radius
+      box-shadow: inset 0 0 1px $light-gray, 0 2px 4px darken($base-background-color, 10%)
+      float: left
+      background: lighten($dark-gray, 10%)
+      img
+        vertical-align: middle
