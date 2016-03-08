@@ -1,0 +1,11 @@
+.settings_wrapper
+  .sidebar
+    - if raspberries.present?
+      .raspberries
+      h1 Board list:
+      - raspberries.each do |rpi|
+        = link_to rpi
+          = rpi.address + ':' + rpi.port
+
+  .settings
+    .message Select device or connect new one!
