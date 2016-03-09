@@ -1,11 +1,16 @@
 .settings_wrapper
   .sidebar
-    - if raspberries.present?
-      .raspberries
-      h1 Board list:
-      - raspberries.each do |rpi|
-        = link_to rpi
-          = rpi.address + ':' + rpi.port
+    .dropdown
+      .dropdown-container
+        p.dropdown-description Board:
+        p.dropdown-button Click to Select
+        ul.dropdown-menu.dropdown-select
+          li = link_to "new device", new_raspberry_path, remote: true
+        - raspberries.each do |rpi|
+          li = link_to rpi
+            = rpi.address + ':' + rpi.port
 
   .settings
-    .message Select device or connect new one!
+    - if raspberry
+      .message
+        h1 Select device or connect new one!
