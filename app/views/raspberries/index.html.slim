@@ -6,9 +6,9 @@
         p.dropdown-button Click to Select
         ul.dropdown-menu.dropdown-select
           li = link_to "new device", new_raspberry_path, remote: true
-        - raspberries.each do |rpi|
-          li = link_to rpi
-            = rpi.address + ':' + rpi.port
+          - raspberries.each do |rpi|
+            li = link_to rpi
+              = rpi.name
 
   .settings
     - if raspberry
