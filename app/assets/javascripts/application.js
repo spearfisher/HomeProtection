@@ -15,3 +15,19 @@
 //= require turbolinks
 //= require_tree .
 //= require bootstrap-sprockets
+
+$( window ).load( function() {
+  autoHeight();
+  $( window ).resize( function() {
+  autoHeight();
+  });
+});
+
+
+function autoHeight() {
+  if ($(window).width() > 980) {
+    $('.guard_section, .temp_section').css("height", $('.video_section').height());
+  } else {
+    $('.guard_section, .temp_section').css("height", $('.video_section').height()/2);
+  }
+};
