@@ -1,1 +1,1 @@
-$('.message').html("<%= j(render 'new_form') %>")
+$('.settings').html("<%= j(render 'new_form') %>")

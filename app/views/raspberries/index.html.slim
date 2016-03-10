@@ -1,16 +1,19 @@
-.settings_wrapper
-  .sidebar
-    .dropdown
-      .dropdown-container
-        p.dropdown-description Board:
-        p.dropdown-button Click to Select
-        ul.dropdown-menu.dropdown-select
-          li = link_to "new device", new_raspberry_path, remote: true
+.container-fluid
+  .settings_wrapper.row.row-eq-height
+    .sidebar.col-sm-2.col-sm-offset-1
+      .dropdown
+        button#dropdownMenu1.btn.btn-default.dropdown-toggle type="button"  data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"
+          'Click to Select
+          span.caret
+        ul.dropdown-menu.dropdown-menu-right aria-labelledby="dropdownMenu1"
           - raspberries.each do |rpi|
             li = link_to rpi
               = rpi.name
+          li.divider role="separator"
+          li.dropdown-header Add new raspberry
+          li = link_to "New", new_raspberry_path, remote: true
 
-  .settings
-    - if raspberry
-      .message
-        h1 Select device or connect new one!
+    .settings.col-sm-8
+      - if raspberry
+        .message
+          h3 Select device or connect new one!

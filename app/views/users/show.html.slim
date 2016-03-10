@@ -1,5 +1,14 @@
-.controls_wrapper
-  = render "video_section"
-  = render "temp_section"
-  = render "guard_section"
-  = render "graph_section"
+.controls_wrapper.container-fluid
+  .row
+    .col-md-6
+      .video_section
+        = render "video_section"
+    .col-md-3
+      .temp_section
+        = render "temp_section"
+    .col-md-3
+      .guard_section
+        = render "guard_section"
+    .col-md-6
+      .graph_section
+        = render "graph_section"
