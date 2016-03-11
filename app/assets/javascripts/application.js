@@ -16,13 +16,14 @@
 //= require_tree .
 //= require bootstrap-sprockets
 
-$( window ).load( function() {
-  autoHeight();
-  $( window ).resize( function() {
-  autoHeight();
+$(document).ready(function(){
+  $( window ).load( function() {
+    autoHeight();
+    $( window ).resize( function() {
+    autoHeight();
+    });
   });
 });
-
 
 function autoHeight() {
   if ($(window).width() > 980) {

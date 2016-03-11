@@ -7,13 +7,13 @@ header
           - 3.times do
             span class="icon-bar"
 
-        = link_to root_path, class: "navbar-brand" do
+        = link_to '#', class: "navbar-brand" do
           ' Logo
       #bs-example-navbar-collapse-1.collapse.navbar-collapse
 
         ul.nav.navbar-nav
           li.nav-link
-            = link_to root_path do
+            = link_to user_path(current_user), class: 'home', onclick: "setTimeout(function(){ autoHeight() }, 600)" do
               .fa.fa-home
               | Home
           li.nav-link

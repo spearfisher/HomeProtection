@@ -1,15 +1,43 @@
-.temp_section,
-.guard_section
-  background: blue
-  height: 480px
+$green : rgb(67, 181, 31)
+$red : rgb(211, 44, 44)
+$blue : rgb(0, 174, 239)
+$blue-2 : rgb(60, 91, 155)
+$orange : rgb(245, 141, 0)
+$violet : rgb(100, 15, 108)
+$yellow : rgb(255, 200, 8)
+$grey : rgb(76, 94, 81)
+$text-color: #f3f3f3
 
+.camera,
+.temp_section,
+.graph_section,
 .guard_section
-  background: red
+  color: $text-color
+  border-radius: 2px
+  // padding: 10px
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3), 0 0 20px rgba(0, 0, 0, 0.1) inset
+  position: relative
+  &:before
+    position: absolute
+    content: ""
+    top: 14px
+    bottom: 14px
+    left: 0
+    right: 0
+    box-shadow: 0 0 25px 3px #548E7F
+    border-radius: 100px/10px
+    z-index: -1
+
+.temp_section
+  background: $blue
+.graph_section
+  background: $orange
+.guard_section
+  background: $red
 
 .graph_section
   margin-top: 20px
   height: 150px
-  background: pink
 
 .video_section
   width: 100%
