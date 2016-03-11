@@ -1,14 +1,19 @@
+@import "colors"
+
 .row-eq-height
   display: -webkit-box
   display: -webkit-flex
   display: -ms-flexbox
   display: flex
 
-  .sidebar, .settings
-    background: grey
-    min-height: 100%
-    text-align: center
-    padding-top: 20px
+.sidebar, .settings
+  background: $blue
+  height: 500px
+  text-align: center
+
+  padding-top: 20px
+.sidebar
+  border-right: 2px solid #fff
 
 @media (min-width: 768px)
   .navbar
