@@ -27,6 +27,10 @@ group :development, :test do
   gem 'quiet_assets'
   gem 'rspec-rails'
   gem 'rubocop'
+  gem 'factory_girl_rails'
+  gem 'capybara'
+  gem 'poltergeist'
+  gem 'simplecov', require: false
 end
 
 group :development do
