@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
 
+ruby '2.3.0'
+
 gem 'rails', '4.2.5'
 gem 'pg'
 gem 'bootstrap-sass', '~> 3.3.6'
@@ -30,5 +32,4 @@ end
 group :development do
   gem 'web-console', '~> 2.0'
   gem 'spring'
-  gem 'refills'
 end
