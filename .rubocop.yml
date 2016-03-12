@@ -4,6 +4,7 @@ AllCops:
     - 'bin/**/*'
     - 'log/**/*'
     - 'Gemfile'
+    - 'spec/rails_helper.rb'
 Metrics/LineLength:
   Enabled: false
 Style/Documentation:
