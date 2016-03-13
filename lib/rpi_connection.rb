@@ -10,5 +10,7 @@ class RpiConnection
       sock.print(@message)
       JSON.parse(sock.read)
     end
+  rescue Errno::ECONNREFUSED
+    nil
   end
 end

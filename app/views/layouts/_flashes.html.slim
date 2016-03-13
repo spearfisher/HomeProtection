@@ -1,0 +1,7 @@
+-if flash.any?
+  - flash.each do |alert, message|
+    .alert.alert-dismissible class="alert-#{alert}" role="alert"
+      strong
+        ' Message:
+      = message
+
