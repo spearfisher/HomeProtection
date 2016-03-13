@@ -16,13 +16,15 @@
 //= require_tree .
 //= require bootstrap-sprockets
 
-$(document).ready(function(){
+$(document).on('ready page:update', function(){
   $( window ).load( function() {
     autoHeight();
     $( window ).resize( function() {
-    autoHeight();
+      autoHeight();
     });
   });
+  autoHeight();
+  dropDown();
 });
 
 function autoHeight() {
@@ -32,3 +34,12 @@ function autoHeight() {
     $('.guard_section, .temp_section, .graph_section').css("height", $('.video_section').height()/2);
   }
 };
+
+function dropDown() {
+  $('.dropdown-toggle').on('click', function(){
+    $('.dropdown-menu').show();
+  });
+  $('li').on('click', function(){
+    $('.dropdown-menu').hide();
+  });
+}

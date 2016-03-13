@@ -5,7 +5,7 @@
         button#dropdownMenu1.btn.btn-default.dropdown-toggle type="button"  data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"
           'Boards: Click to Select
           span.caret
-        ul.dropdown-menu.dropdown-menu-right aria-labelledby="dropdownMenu1"
+        ul.dropdown-menu aria-labelledby="dropdownMenu1"
           - raspberries.each do |rpi|
             li = link_to rpi
               = rpi.name
