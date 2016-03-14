@@ -7,7 +7,7 @@ class RaspberriesController < ApplicationController
   def create
     flash[:danger] = 'No connection to your Raspberry.' unless hardware_info
     if raspberry.update(all_rpi_params)
-      redirect_to raspberry
+      redirect_to raspberries_path
       flash[:success] = 'Raspberry successfully created.'
     else
       render :index
