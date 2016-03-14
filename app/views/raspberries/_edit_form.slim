@@ -1,0 +1,6 @@
+= simple_form_for raspberry, html: { class: 'form-inline' }, remote: true do |f|
+    = f.input :name, label: false
+    = f.input :address, label: false
+    = f.input :port, label: false
+    = f.button :button, "Update"
+    = link_to "Delete", raspberry_path, class: "btn btn-default", remote: true, method: :delete, data: { confirm: 'Are you sure?' }

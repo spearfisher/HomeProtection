@@ -8,16 +8,14 @@
         ul.dropdown-menu aria-labelledby="dropdownMenu1"
           - raspberries.each do |rpi|
             li = link_to rpi, remote: true do
-              = rpi.name ? rpi.name : "#{rpi.address}:#{rpi.port}"
+              = rpi.name.present?  ? rpi.name : "#{rpi.address}:#{rpi.port}"
 
           li.divider role="separator"
           li.dropdown-header Add new raspberry
           li = link_to "New", new_raspberry_path, remote: true
 
     .settings.col-sm-9.col-xs-12
-      - if current_user.raspberries.first
-        = render 'raspberry'
-      - else
+      - if raspberry
         .message
           h3 Select device or connect new one!
         = render "new_form"

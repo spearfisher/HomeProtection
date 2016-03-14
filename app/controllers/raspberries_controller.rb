@@ -10,8 +10,19 @@ class RaspberriesController < ApplicationController
       redirect_to raspberries_path
       flash[:success] = 'Raspberry successfully created.'
     else
+      flash[:warning] = raspberry.errors.first.last
       render :index
     end
+  end
+
+  def update
+    flash[:success] = 'Successfully updated!'
+    raspberry.update(all_rpi_params)
+  end
+
+  def destroy
+    raspberry.destroy
+    redirect_via_turbolinks_to raspberries_path
   end
 
   private
