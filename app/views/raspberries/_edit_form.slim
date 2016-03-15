@@ -1,6 +1,18 @@
-= simple_form_for raspberry, html: { class: 'form-inline' }, remote: true do |f|
-    = f.input :name, label: false
-    = f.input :address, label: false
-    = f.input :port, label: false
-    = f.button :button, "Update"
-    = link_to "Delete", raspberry_path, class: "btn btn-default", remote: true, method: :delete, data: { confirm: 'Are you sure?' }
+= simple_form_for raspberry, remote: true do |f|
+  table.table
+    tr
+      th Name
+      th Host
+      th Port
+      th colspan=2 Action
+    tr
+      td
+        = f.input :name, label: false
+      td
+        = f.input :address, label: false
+      td
+        = f.input :port, label: false
+      td
+        = f.button :button, "Update"
+      td
+        = link_to "Delete", raspberry_path, class: "btn btn-default", remote: true, method: :delete, data: { confirm: 'Are you sure?' }

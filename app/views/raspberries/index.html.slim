@@ -1,19 +1,7 @@
 .container-fluid
   .settings_wrapper.row.row-eq-height
     .sidebar.col-sm-3.col-xs-12
-      .dropdown
-        button#dropdownMenu1.btn.btn-default.dropdown-toggle type="button"  data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"
-          'Boards: Click to Select
-          span.caret
-        ul.dropdown-menu aria-labelledby="dropdownMenu1"
-          - raspberries.each do |rpi|
-            li = link_to rpi, remote: true do
-              = rpi.name.present?  ? rpi.name : "#{rpi.address}:#{rpi.port}"
-
-          li.divider role="separator"
-          li.dropdown-header Add new raspberry
-          li = link_to "New", new_raspberry_path, remote: true
-
+      = render 'dropdown'
     .settings.col-sm-9.col-xs-12
       - if raspberry
         .message

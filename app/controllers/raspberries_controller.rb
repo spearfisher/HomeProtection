@@ -7,12 +7,11 @@ class RaspberriesController < ApplicationController
   def create
     flash[:danger] = 'No connection to your Raspberry.' unless hardware_info
     if raspberry.update(all_rpi_params)
-      redirect_to raspberries_path
       flash[:success] = 'Raspberry successfully created.'
     else
       flash[:warning] = raspberry.errors.first.last
-      render :index
     end
+    redirect_to raspberries_path
   end
 
   def update
@@ -21,7 +20,7 @@ class RaspberriesController < ApplicationController
   end
 
   def destroy
-    raspberry.destroy
+    flash[:success] = 'Successfully removed.' if raspberry.destroy
     redirect_via_turbolinks_to raspberries_path
   end
 
