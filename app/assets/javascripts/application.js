@@ -39,7 +39,10 @@ function dropDown() {
   $('.dropdown-toggle').on('click', function(){
     $('.dropdown-menu').show();
   });
-  $('li').on('click', function(){
+  $('a').on('click', function(){
     $('.dropdown-menu').hide();
   });
+  $(window).on('click', function (){
+    $('.dropdown-menu').hide();
+  })
 }
