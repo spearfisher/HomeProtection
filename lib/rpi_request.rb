@@ -1,4 +1,4 @@
-class RpiConnection
+class RpiRequest
   def initialize(host, port, message)
     @host = host
     @port = port

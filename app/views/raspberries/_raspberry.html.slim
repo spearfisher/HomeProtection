@@ -1,5 +1,8 @@
 strong
   'Raspberry
-  =' raspberry.name
+  => raspberry.name
   'setup:
 = render 'edit_form'
+
+= link_to  test_raspberry_path, controller: :raspberries_controller, action: :test, remote: true do
+  span.btn.btn-default Test connection
