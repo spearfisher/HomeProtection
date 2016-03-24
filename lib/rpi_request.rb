@@ -1,15 +1,13 @@
 class RpiRequest
-  def initialize(host, port, message)
+  def initialize(host, port, path, params: nil)
     @host = host
     @port = port
-    @message = message.to_json
+    @path = path
+    @params = params
   end
 
   def request
-    Socket.tcp(@host, @port) do |sock|
-      sock.print(@message)
-      JSON.parse(sock.read)
-    end
+    HTTP.get("http://#{@host}:#{@port}#{@path}", json: @params).parse
   rescue
     nil
   end

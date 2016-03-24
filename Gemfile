@@ -20,6 +20,7 @@ gem 'omniauth-google-oauth2'
 gem 'bourbon'
 gem 'neat'
 gem 'font-awesome-rails'
+gem 'http'
 
 group :development, :test do
   gem 'pry'

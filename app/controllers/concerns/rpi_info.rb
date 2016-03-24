@@ -2,8 +2,8 @@ module RpiInfo
   require 'rpi_request'
 
   def hardware_info
-    data = { action: 'rpi_activation' }
-    rpi =  RpiRequest.new(rpi_params[:address], rpi_params[:port], data)
+    path = '/api/activation'
+    rpi =  RpiRequest.new(rpi_params[:address], rpi_params[:port], path)
     response = rpi.request
     return nil unless response
     rpi_params[:serial] = response['serial']
@@ -11,8 +11,8 @@ module RpiInfo
   end
 
   def connection_test(raspberry)
-    data = { action: 'ping' }
-    rpi = RpiRequest.new(raspberry.address, raspberry.port, data)
+    path = '/api/test'
+    rpi = RpiRequest.new(raspberry.address, raspberry.port, path)
     return nil unless rpi.request
     rpi.request['message']
   end
