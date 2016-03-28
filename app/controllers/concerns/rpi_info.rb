@@ -1,13 +1,14 @@
 module RpiInfo
   require 'rpi_request'
 
-  def hardware_info
+  def fetch_hardware_info
     path = '/api/activation'
     rpi =  RpiRequest.new(rpi_params[:address], rpi_params[:port], path)
     response = rpi.request
     return nil unless response
     rpi_params[:serial] = response['serial']
     rpi_params[:version] = response['revision']
+    rpi_params[:secret] = response['secret']
   end
 
   def connection_test(raspberry)

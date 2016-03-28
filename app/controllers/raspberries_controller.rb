@@ -13,7 +13,7 @@ class RaspberriesController < ApplicationController
   end
 
   def create
-    flash[:danger] = 'No connection to your Raspberry.' unless hardware_info
+    flash[:danger] = 'No connection to your Raspberry.' unless fetch_hardware_info
     if raspberry.update(rpi_params.permit!)
       flash[:success] = 'Raspberry successfully created.'
     else
