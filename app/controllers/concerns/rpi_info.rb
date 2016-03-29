@@ -2,18 +2,15 @@ module RpiInfo
   require 'rpi_request'
 
   def fetch_hardware_info
-    path = '/api/activation'
-    rpi =  RpiRequest.new(rpi_params[:address], rpi_params[:port], path)
-    response = rpi.request
-    return nil unless response
-    rpi_params[:serial] = response['serial']
-    rpi_params[:version] = response['revision']
-    rpi_params[:secret] = response['secret']
+    url = "http://#{rpi_params[:address]}:#{rpi_params[:port]}"
+    rpi = RpiRequest.new(url, '/activation')
+    resp = rpi.post_request
+    return nil unless resp
+    rpi_params.merge! resp
   end
 
-  def connection_test(raspberry)
-    path = '/api/test'
-    rpi = RpiRequest.new(raspberry.address, raspberry.port, path)
+  def connection_test
+    rpi = RpiRequest.new(raspberry.url, '/api/test')
     return nil unless rpi.request
     rpi.request['message']
   end

@@ -5,7 +5,7 @@ class RaspberriesController < ApplicationController
   expose(:raspberries) { current_user.raspberries }
 
   def test
-    if connection_test(raspberry) == 'OK'
+    if connection_test == 'OK'
       flash[:info] = 'Online'
     else
       flash[:danger] = 'Offline'

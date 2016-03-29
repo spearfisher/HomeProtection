@@ -3,5 +3,9 @@ class Raspberry < ActiveRecord::Base
   belongs_to :user
   serialize :settings
   validates :serial, uniqueness: true
-  validates :address, :port, :serial, :version, presence: true
+  validates :address, :port, :serial, :revision, presence: true
+
+  def url
+    "http://#{address}:#{port}"
+  end
 end

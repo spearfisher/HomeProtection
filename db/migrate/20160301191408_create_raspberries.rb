@@ -4,7 +4,7 @@ class CreateRaspberries < ActiveRecord::Migration
       t.references :user, index: true, foreign_key: true
       t.string :address
       t.string :port
-      t.string :version
+      t.string :revision
       t.string :serial
       t.text :settings
 

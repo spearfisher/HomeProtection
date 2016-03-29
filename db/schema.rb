@@ -20,7 +20,7 @@ ActiveRecord::Schema.define(version: 20160328132638) do
     t.integer  "user_id"
     t.string   "address"
     t.string   "port"
-    t.string   "version"
+    t.string   "revision"
     t.string   "serial"
     t.text     "settings"
     t.datetime "created_at",          null: false
