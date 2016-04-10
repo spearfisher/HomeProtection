@@ -1,5 +1,5 @@
 class RpiRequest
-  def initialize(url, path, secret: '', params: nil)
+  def initialize(url, path, secret = '', params = nil)
     @url = url
     @path = path
     @secret = secret
@@ -7,15 +7,15 @@ class RpiRequest
   end
 
   def request
-    HTTP.get("#{@url}#{@path}", json: @params).parse
+    HTTP.get("#{@url}#{@path}", params: @params).parse
   rescue
     nil
   end
 
   def post_request
-    return nil unless sanitaze_params
+    return nil unless sanitaze_url
     @connection = HTTP.persistent @url
-    @connection.headers(token: token).post(@path, json: @params).parse
+    @connection.headers(token: token).post(@path, params: @params).parse
   rescue HTTP::ConnectionError
     nil
   ensure
@@ -28,11 +28,11 @@ class RpiRequest
     @connection.get('/api/salt').parse['salt']
   end
 
-  def sanitaze_params
+  def sanitaze_url
     URI.parse(@url).host
   end
 
   def token
-    BCrypt::Engine.hash_secret(@secret, fetch_salt)
+    BCrypt::Engine.hash_secret(@secret + @path, fetch_salt)
   end
 end

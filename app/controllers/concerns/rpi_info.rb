@@ -14,4 +14,14 @@ module RpiInfo
     return nil unless rpi.request
     rpi.request['message']
   end
+
+  def stream_token
+    token = SecureRandom.hex
+    rpi = RpiRequest.new(raspberry.url,
+                         '/api/token',
+                         raspberry.secret,
+                         stream_token: token)
+    return nil unless rpi.post_request
+    token
+  end
 end
