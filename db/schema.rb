@@ -11,10 +11,32 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160328132638) do
+ActiveRecord::Schema.define(version: 20160413114831) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "climate_logs", force: :cascade do |t|
+    t.integer  "climate_sensor_id"
+    t.datetime "datetime"
+    t.float    "temp"
+    t.float    "humidity"
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
+  end
+
+  add_index "climate_logs", ["climate_sensor_id"], name: "index_climate_logs_on_climate_sensor_id", using: :btree
+
+  create_table "climate_sensors", force: :cascade do |t|
+    t.integer  "raspberry_id"
+    t.string   "name"
+    t.string   "model"
+    t.integer  "port_number"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+  end
+
+  add_index "climate_sensors", ["raspberry_id"], name: "index_climate_sensors_on_raspberry_id", using: :btree
 
   create_table "raspberries", force: :cascade do |t|
     t.integer  "user_id"
@@ -42,5 +64,7 @@ ActiveRecord::Schema.define(version: 20160328132638) do
     t.datetime "updated_at",    null: false
   end
 
+  add_foreign_key "climate_logs", "climate_sensors"
+  add_foreign_key "climate_sensors", "raspberries"
   add_foreign_key "raspberries", "users"
 end

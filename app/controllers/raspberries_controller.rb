@@ -1,6 +1,8 @@
 class RaspberriesController < ApplicationController
   include RpiInfo
   layout 'user'
+  # expose(:climate_sensors) { |default| default.sensors(params) }
+  expose(:climate_sensors) { raspberry.climate_sensors }
   expose(:raspberry)
   expose(:raspberries) { current_user.raspberries }
 
@@ -13,6 +15,7 @@ class RaspberriesController < ApplicationController
   end
 
   def create
+    binding.pry
     flash[:danger] = 'No connection to your Raspberry.' unless fetch_hardware_info
     if raspberry.update(rpi_params.permit!)
       flash[:success] = 'Raspberry successfully created.'
@@ -37,4 +40,9 @@ class RaspberriesController < ApplicationController
   def rpi_params
     params.require(:raspberry)
   end
+
+  def climate_sensor
+    @climate_sensor ||= ClimateSensor.new
+  end
+  helper_method :climate_sensor
 end

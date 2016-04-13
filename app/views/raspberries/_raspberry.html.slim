@@ -4,5 +4,12 @@ strong
   'setup:
 = render 'edit_form'
 
+strong
+  'Climate Sensors setup
+
+.climate_sensors
+  = render 'climate_sensors/climate_sensors'
+
 = link_to  test_raspberry_path, controller: :raspberries_controller, action: :test, remote: true do
   span.btn.btn-default Test connection
+

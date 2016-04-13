@@ -6,6 +6,6 @@ class UsersController < ApplicationController
 
   def show
     redirect_to raspberries_path unless raspberry
-    @stream_token = stream_token
+    @stream_token = stream_token if raspberry
   end
 end

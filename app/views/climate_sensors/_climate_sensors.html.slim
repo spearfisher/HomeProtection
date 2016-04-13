@@ -1,0 +1,31 @@
+= simple_form_for climate_sensor, remote: true do |f|
+  table.table
+    tr
+      th Name
+      th Model
+      th GPIO port
+      th Action
+
+    - climate_sensors.each do |sensor|
+        tr
+          td
+            = sensor.name
+          td
+            = sensor.model
+          td
+            = sensor.port_number
+          td
+            = link_to "Delete", climate_sensors_path(sensor), class: "btn btn-default", remote: true, method: :delete, data: { confirm: 'Are you sure?' }
+
+    tr
+      td colspan=4 Add new sensor
+    tr
+      td
+        = f.input :name, label: false
+      td
+        = f.input :model, label: false
+      td
+        = f.input :port_number, label: false
+        = f.hidden_field :raspberry_id, value: params[:id]
+      td
+        = f.button :button, "Save"
