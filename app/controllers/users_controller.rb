@@ -25,6 +25,7 @@ class UsersController < ApplicationController
   end
 
   def chart_data(sensor)
+    # TODO: add scope for one db query
     logs = sensor.climate_logs.today
     [{ name: "#{sensor.name} - Temperature", data: temp_hash(logs) },
      { name: "#{sensor.name} - Humidity", data: rh_hash(logs) }]

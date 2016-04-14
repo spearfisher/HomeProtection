@@ -1,4 +1,8 @@
-.status
-  p Disarmed
-  p Since time
-  button "ARM"
+.security
+  p.fa.fa-unlock-alt
+    | Disarmed
+  p
+    ' Since:
+  p.time
+    => (Time.now - 5.hour).strftime("%Y-%d-%m %H:%M")
+  button.btn.btn-primary.btn-lg Guard

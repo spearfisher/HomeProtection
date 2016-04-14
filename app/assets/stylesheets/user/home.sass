@@ -5,6 +5,10 @@
 .temp_section,
 .graph_section,
 .guard_section
+  p
+    font-size: 1.4em
+    line-height: 2em
+    text-align: right
   color: $text-color
   border-radius: 4px
   margin-top: 20px
@@ -23,10 +27,26 @@
 
 .temp_section
   background: $light-blue
+  padding: 10px
+  .climate
+    font-size: 2em
+  .sensor-name
+    text-align: left
+
 .graph_section
   background: $orange
 .guard_section
+  padding: 10px
   background: $red
+  .security
+    position: relative
+    font-size: 2em
+    .time
+      font-size: 1em
+    button
+      position: absolute
+      right: 40%
+      top: 120%
 
 .video_section
   text-align: center

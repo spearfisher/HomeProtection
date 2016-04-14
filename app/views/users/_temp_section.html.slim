@@ -1,3 +1,15 @@
-p Temperature
-p Home: 24
-p Outdoor: 11
+.climate
+  p.fa.fa-cloud Climate
+
+-climate_sensors.each do |sensor|
+  p.sensor-name
+    = sensor.name
+    | :
+  p
+    ' Temperature:
+    => sensor.climate_logs.last.temp.round(2)
+    ' &#8451
+  p
+    '  Humidity:
+    => sensor.climate_logs.last.humidity.round(2)
+    ' %
