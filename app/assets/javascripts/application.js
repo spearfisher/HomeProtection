@@ -15,6 +15,7 @@
 //= require turbolinks
 //= require_tree .
 //= require bootstrap-sprockets
+//= require jsapi
 //= require chartkick
 
 $(document).on('ready page:update', function(){
