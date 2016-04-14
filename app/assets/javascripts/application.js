@@ -15,6 +15,7 @@
 //= require turbolinks
 //= require_tree .
 //= require bootstrap-sprockets
+//= require chartkick
 
 $(document).on('ready page:update', function(){
   $( window ).load( function() {
@@ -29,9 +30,9 @@ $(document).on('ready page:update', function(){
 
 function autoHeight() {
   if ($(window).width() > 980) {
-    $('.guard_section, .temp_section, .graph_section').css("height", $('.video_section').height());
+    $('.guard_section, .temp_section').css("height", $('.video_section').height());
   } else {
-    $('.guard_section, .temp_section, .graph_section').css("height", $('.video_section').height()/2);
+    $('.guard_section, .temp_section').css("height", $('.video_section').height()/2);
   }
 };
 

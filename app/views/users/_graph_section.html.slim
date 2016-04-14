@@ -1,1 +1,2 @@
-p Daily Temperature graph
+-climate_sensors.each do |sensor|
+  = line_chart chart_data(sensor), library: {backgroundColor: "rgb(245, 141, 0)"}

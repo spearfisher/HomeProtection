@@ -23,6 +23,7 @@ gem 'font-awesome-rails'
 gem 'http'
 gem 'attr_encrypted', '~> 2.0.0'
 gem 'bcrypt'
+gem 'chartkick'
 
 group :development, :test do
   gem 'pry'
