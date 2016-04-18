@@ -1,10 +1,9 @@
 class RaspberriesController < ApplicationController
   include RpiInfo
   layout 'user'
-  # expose(:climate_sensors) { |default| default.sensors(params) }
-  expose(:climate_sensors) { raspberry.climate_sensors }
   expose(:raspberry)
   expose(:raspberries) { current_user.raspberries }
+  expose(:climate_sensors) { raspberry.climate_sensors }
 
   def test
     if connection_test == 'OK'
@@ -15,7 +14,6 @@ class RaspberriesController < ApplicationController
   end
 
   def create
-    binding.pry
     flash[:danger] = 'No connection to your Raspberry.' unless fetch_hardware_info
     if raspberry.update(rpi_params.permit!)
       flash[:success] = 'Raspberry successfully created.'

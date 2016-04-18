@@ -2,6 +2,7 @@ class UsersController < ApplicationController
   expose(:raspberry) { raspberries.first }
   expose(:raspberries) { current_user.raspberries }
   expose(:climate_sensors) { raspberry.climate_sensors }
+  expose(:climate_logs) { raspberry.climate_logs.today }
   include RpiInfo
   layout 'user'
 
