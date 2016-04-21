@@ -26,6 +26,7 @@ gem 'bcrypt'
 gem 'chartkick'
 
 group :development, :test do
+  gem 'bullet'
   gem 'pry'
   gem 'database_cleaner'
   gem 'quiet_assets'

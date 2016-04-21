@@ -1,8 +1,7 @@
 class UsersController < ApplicationController
   expose(:raspberry) { raspberries.first }
   expose(:raspberries) { current_user.raspberries }
-  expose(:climate_sensors) { raspberry.climate_sensors }
-  expose(:climate_logs) { raspberry.climate_logs.today }
+  expose(:climate_sensors) { raspberry.climate_sensors.eager_load(:climate_logs).where('datetime > ?', range) }
   include RpiInfo
   layout 'user'
 
@@ -13,23 +12,28 @@ class UsersController < ApplicationController
 
   private
 
-  def temp_hash(logs)
+  def climate_hash(logs, characteristic)
     hash = {}
-    logs.each { |log| hash.merge! log.datetime => log.temp }
-    hash
-  end
-
-  def rh_hash(logs)
-    hash = {}
-    logs.each { |log| hash.merge! log.datetime => log.humidity }
+    logs.each { |log| hash.merge! log.datetime => log.send(characteristic) }
     hash
   end
 
   def chart_data(sensor)
-    # TODO: add scope for one db query
-    logs = sensor.climate_logs.today
-    [{ name: "#{sensor.name} - Temperature", data: temp_hash(logs) },
-     { name: "#{sensor.name} - Humidity", data: rh_hash(logs) }]
+    logs = sensor.climate_logs
+    [{ name: "#{sensor.name} - Temperature", data: climate_hash(logs, :temp) },
+     { name: "#{sensor.name} - Humidity", data: climate_hash(logs, :humidity) }]
   end
   helper_method :chart_data
+
+  def climate_range_hash
+    { 'Today' => Date.today,
+      'Last week' => 1.week.ago,
+      'Last month' => 1.month.ago }
+  end
+  helper_method :climate_range_hash
+
+  def range
+    return Date.today unless params[:range]
+    climate_range_hash[params[:range]]
+  end
 end

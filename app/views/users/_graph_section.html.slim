@@ -1,2 +1,11 @@
--climate_sensors.each do |sensor|
-  = line_chart chart_data(sensor), library: {backgroundColor: "rgb(245, 141, 0)"}
+.climate_range.dropdown
+  button#climate-dropdown.btn.btn-default.dropdown-toggle type="button"  data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+    ' Climate range
+    span.caret
+  ul.dropdown-menu aria-labelledby="climate-dropdown"
+    - climate_range_hash.each_key do |period|
+      li
+        = link_to period, climate_range_user_path(range: period), remote: true
+
+- climate_sensors.each do |sensor|
+  = line_chart chart_data(sensor), library: {backgroundColor: "rgb(245, 141, 0)", pointSize: 0}
